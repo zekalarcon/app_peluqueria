@@ -1,0 +1,94 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div class=row id='message_row'> 
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert" id="message" >
+            {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+</div>
+
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card card-body border-dark">
+            <form action="/agregar_stock" method="POST">
+                <div class="form-group">
+                    <input type="text" name ="stock_producto" placeholder="Producto" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" name ="stock_cantidad" placeholder="Cantidad" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block">
+                        Argregar stock
+                    </button>
+                </div> 
+            </form>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card card-body border-dark" id='card_stock1'>
+            <form action="/consulta_stock" method="POST">
+                <div class="form-group">
+                    <input type="text" name ="consulta_producto" placeholder="Producto" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block">
+                        Consultar stock
+                    </button>
+                </div> 
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card card-body border-dark" id='card_stock2'>
+            <table class="table table-striped table-bordered bg-white ">
+                <thead>
+                    <tr>
+                        <td>STOCK AGREGADO</td> 
+                        <td  style="width:18%">OPERACION</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr> 
+                        <td>{{ producto }}</td> 
+                        <td>
+                            {% for x in producto %}         
+                            <a href="/delete_stock" class="btn btn-danger">Borrar</a> 
+                            {% endfor %}       
+                        </td>         
+                    </tr>        
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card card-body border-dark" id='card_stock3'>
+            <table class="table table-striped table-bordered bg-white ">
+                <thead>
+                    <tr>
+                        <td>STOCK CONSULTA</td> 
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr> 
+                        <td>{{ item }} {{ x }} {{ total }}</td>         
+                    </tr>        
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

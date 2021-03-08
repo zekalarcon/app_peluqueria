@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div class="row d-flex justify-content-center">
+    <div class="col-md-9">
+        <div class="card card-body border-dark">
+            <form action="/update/{{ id[0] }}" method="POST">
+                <div class="form-group">
+                    <input type="text" name ="operacion" placeholder="Operacion" class="form-control" value="{{ operacion[0] }}">
+                </div>
+                <div class="form-group">
+                    <input type="text" name ="nombre_cliente" placeholder="Nombre Cliente" class="form-control" value="{{ nombre[0] }}">
+                </div>
+                <div class="form-group">
+                    <input type="text" name ="telefono_cliente" placeholder="Telefono" class="form-control" value="{{ telefono[0] }}">
+                </div>
+                <div class="form-group">
+                    <input type="text" name ="precio" placeholder="Precio" class="form-control" value="{{ precio[0] }}">
+                </div>
+                <div class="form-group">
+                    <input type="text" name ="empleado" placeholder="Empleado" class="form-control" value="{{ empleado[0] }}">
+                </div>              
+                <div class="form-group">
+                    {% for k, v in producto.items() %}
+                    <input type="text" name ="producto" placeholder="Producto" class="form-control" value="{{ k[0] }}">
+                    <input type="text" name ="cantidad" placeholder="Cantidad" multiple class="form-control" value="{{ v[0] }}">
+                    {% endfor %}           
+                </div>                                  
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block">
+                        Guardar Edicion
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

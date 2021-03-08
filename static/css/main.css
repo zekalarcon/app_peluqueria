@@ -1,0 +1,50 @@
+/* layout.html */
+
+body{
+    
+    background-image: url(/static/images/fondo.jpg);
+    background-repeat: no-repeat;
+    background-size:1300px 800px;
+    background-attachment: fixed;
+}
+
+#nav_bar{
+    height: 50px;
+    font-family: 'Racing Sans One', cursive;
+    font-size: 23px;
+    background-color: #DADADA ;
+}
+
+#logo_nav{
+    width: 40px;
+    height: 45px; 
+}
+
+/* cliente.html */
+
+#tabla_cliente_info{
+    margin-top: 10px;
+  }
+
+#card_cliente_info{
+    margin-top: 50px;
+}  
+
+/* stock.html */
+
+#card_stock2, #card_stock3{
+    margin-top: 50px;
+} 
+
+#card_stock1{
+    margin-top: 68px;
+}
+
+#message{
+    
+    margin-left: 15px;
+    
+}
+
+
+
